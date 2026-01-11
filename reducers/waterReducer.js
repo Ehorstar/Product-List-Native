@@ -4,6 +4,8 @@ const waterReducer = (state, action) => {
       return action.payload ?? 0;
     case "ADD_WATER":
       return state + action.payload;
+    case "REMOVE_WATER":
+      return 0;
     default:
       return state;
   }
