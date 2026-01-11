@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
     danger: {
         backgroundColor: '#d40101ff'
     },
-
+    icon: {
+        backgroundColor: 'transparent',
+    },
     content: {
         flexDirection: 'row',
         alignItems: 'center',

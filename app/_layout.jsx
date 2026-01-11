@@ -3,6 +3,7 @@ import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Entypo from "@expo/vector-icons/Entypo";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const RootLayout = () => {
   const router = useRouter();
@@ -13,12 +14,33 @@ const RootLayout = () => {
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#f4511e",
+            backgroundColor: "dodgerblue",
           },
           headerTintColor: "#fff",
         }}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="WaterTracker"
+          options={{
+            headerTitle: () => (
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <FontAwesome6 name="bottle-water" size={24} color="white" />
+                <Text
+                  style={{ marginLeft: 8, fontSize: 18, fontWeight: "bold" }}
+                >
+                  Water Tracker
+                </Text>
+              </View>
+            ),
+            headerTitleAlign: "center",
+            headerLeft: () => (
+              <Pressable onPress={() => router.back()}>
+                <Entypo name="chevron-left" size={24} color="white" />
+              </Pressable>
+            ),
+          }}
+        />
         <Stack.Screen
           name="about"
           options={{
@@ -39,7 +61,7 @@ const RootLayout = () => {
         <Stack.Screen name="productList" options={{ title: "Product List" }} />
       </Stack>
       <View style={styles.footer}>
-        <Text>Root Layout</Text>
+        <Text>Усі права захищені</Text>
       </View>
     </View>
   );
@@ -50,6 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   footer: {
+    height: 30,
     backgroundColor: "#ddd",
     alignItems: "center",
   },
